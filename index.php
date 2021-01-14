@@ -3,7 +3,7 @@
     $header = 'Your Schedule';
     $userIdentity = (new UserMap())->identity($_SESSION['id']);
     if ($userIdentity == UserMap::ATTENDANT) {
-        $schedules = (new ScheduleMap())->findByAttendantId($_SESSION['id']);
+        //$schedules = (new WateringScheduleMap())->findByAttendantId($_SESSION['id']);
     }
     require_once 'template/header.php';
 ?>
@@ -17,12 +17,11 @@
                 <?php if ($schedules) : ?>
                     <table class="table table-bordered table-hover">
                         <?php foreach ($schedules as $day) : ?>
-                        <?php endforeach;?>
-                            <?php else: ?>
+                            <!-- <?php #else: ?>
                                 <tr>
                                     <td colspan="3">You have no Schedule for this day</td>
-                                </tr>
-                            <?php endif; ?>
+                                </tr> -->
+                            <?php #endif; ?>
                         <?php endforeach;?>
                     </table>
                 <?php else: ?>

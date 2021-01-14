@@ -63,9 +63,9 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Les</b>Parcs</span>
+      <span class="logo-mini"><b>L</b>P</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Les</b>Parcs</span>
     </a>
@@ -92,7 +92,6 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -171,11 +170,13 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><b>Hello</b>, <?=$_SESSION['full_name']?></span>
+              <img src="template/imgs/profile.png" class="user-image" alt="User Image">
+              <span class="hidden-xs"><b><?=$_SESSION['full_name']?></b></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
+              <img src="template/imgs/profile.png" class="user-circle" alt="User Image">
                 <p>
                   <?=$_SESSION['full_name']?>
                   <small><?=$_SESSION['roleName']?></small>
@@ -184,9 +185,6 @@ desired effect
 
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
                 <div class="pull-right">
                   <form method="POST">
                     <button type="submit" class="btn btn-default btn-flat" name="out">Sign Out</button>
@@ -201,16 +199,18 @@ desired effect
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+  <?php if(Helper::can('admin')) :?>
+    <aside class="main-sidebar">
 
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        
+          <?php require_once 'template/menu.php'; ?>
 
-      <?php require_once 'template/menu.php'; ?>
-
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+  <?php endif;?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

@@ -7,17 +7,31 @@
     <td><?=$user->username;?></td>
 </tr>
 <tr>
-    <th>Full Name</th>
-    <td><?=$user->full_name;?></td>
+    <th>First Name</th>
+    <td><?=$user->firstname;?></td>
 </tr>
+<?php if ($user->patronymic) : ?>
+    <tr>
+        <th>Patronymic</th>
+        <td><?=$user->patronymic;?></td>
+    </tr>
+<?php endif; ?>
 <tr>
-    <th>Address</th>
-    <td><?=$user->address;?></td>
+    <th>Last Name</th>
+    <td><?=$user->lastname;?></td>
 </tr>
-<tr>
-    <th>Phone</th>
-    <td><?=$user->phone;?></td>
-</tr>
+<?php if ($user->address) : ?>
+    <tr>
+        <th>Address</th>
+        <td><?=$user->address;?></td>
+    </tr>
+<?php endif; ?>
+<?php if ($user->phone) : ?>
+    <tr>
+        <th>Phone</th>
+        <td><?=$user->phone;?></td>
+    </tr>
+<?php endif; ?>
 <tr>
     <th>Role</th>
     <td><?=$user->role;?></td>
