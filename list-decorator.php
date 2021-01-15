@@ -57,6 +57,7 @@
                                 echo '<td>'.$decorator->graduation.'</td>';
                                 echo '<td>'.$decorator->category.'</td>';
                                 echo '<td>'.$decorator->role.'</td>';
+                                echo '<td><a href="delete-user.php?id='.$decorator->user_id.'&role='.$decorator->role.'"><i class="fa fa-trash"></i> Delete</a></td>';
                                 echo '</tr>';
                             }
                         ?>

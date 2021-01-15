@@ -36,7 +36,6 @@
         }
 
         private function insert(Attendant $attendant) {
-            var_dump($attendant);
             if ($this->db->exec("INSERT INTO attendant(user_id) VALUES($attendant->user_id)") == 1) {
                 return true;
             }
@@ -45,6 +44,13 @@
 
         private function update(Attendant $attendant) {
             return true;
+        }
+
+        public function delete($id) {
+            if ($this->db->exec("DELETE FROM attendant WHERE user_id=$id") == 1 && (new UserMap())->delete($id) == 1) {
+                return true;
+            }
+            return false;
         }
 
         public function findProfileById($id = null) {

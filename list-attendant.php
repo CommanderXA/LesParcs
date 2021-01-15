@@ -53,6 +53,7 @@
                                 echo '<td>'.$attendant->firstname.'</td>';
                                 echo '<td>'.$attendant->lastname.'</td>';
                                 echo '<td>'.$attendant->role.'</td>';
+                                echo '<td><a href="delete-user.php?id='.$attendant->user_id.'&role='.$attendant->role.'"><i class="fa fa-trash"></i> Delete</a></td>';
                                 echo '</tr>';
                             }
                         ?>

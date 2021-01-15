@@ -1,5 +1,5 @@
 <?php
-    class WateringTime extends Table {
+    class Time extends Table {
 
         public $watering_time_id = 0;
         public $watering_time = null;

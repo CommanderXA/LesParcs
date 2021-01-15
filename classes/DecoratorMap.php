@@ -51,16 +51,24 @@
         }
 
         private function insert(Decorator $decorator) {
-            var_dump($decorator);
+            $educational_institution = $this->db->quote($decorator->educational_institution);
             if ($this->db->exec("INSERT INTO decorator(user_id, graduation_id, category_id, educational_institution)" 
-                                . "VALUES($decorator->user_id, $decorator->graduation_id, $decorator->category_id, $decorator->educational_institution)") == 1) {
+                                . "VALUES($decorator->user_id, $decorator->graduation_id, $decorator->category_id, $educational_institution)") == 1) {
                 return true;
             }
             return false;
         }
 
         private function update(Decorator $decorator) {
-            if ($this->db->exec("UPDATE decorator SET graduation_id = $decorator->graduation_id, category_id = $decorator->category_id, educational_institution = $decorator->educational_institution WHERE user_id=".$decorator->user_id) == 1) {
+            $educational_institution = $this->db->quote($decorator->educational_institution);
+            if ($this->db->exec("UPDATE decorator SET graduation_id = $decorator->graduation_id, category_id = $decorator->category_id, educational_institution = $educational_institution WHERE user_id=".$decorator->user_id) == 1) {
+                return true;
+            }
+            return false;
+        }
+
+        public function delete($id) {
+            if ($this->db->exec("DELETE FROM decorator WHERE user_id=$id") == 1 && (new UserMap())->delete($id) == 1) {
                 return true;
             }
             return false;

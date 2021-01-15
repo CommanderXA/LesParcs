@@ -36,8 +36,7 @@
                 if ($user->user_id == 0) {
                     return $this->insert($user);
                 } 
-            }
-            else {
+            } else {
                 return $this->update($user);
             }
 
@@ -69,6 +68,13 @@
             $phone = $this->db->quote($user->phone);
             if ( $this->db->exec("UPDATE user SET lastname = $lastname, firstname = $firstname, patronymic = $patronymic, username = $username, password = $password, phone = $phone, address = $address, role_id = $user->role_id, active = $user->active "
             . "WHERE user_id = ".$user->user_id) == 1) {
+                return true;
+            }
+            return false;
+        }
+
+        public function delete($id) {
+            if ($this->db->exec("DELETE FROM user WHERE user_id=$id") == 1) {
                 return true;
             }
             return false;
@@ -110,6 +116,14 @@
             $res = $this->db->query("SELECT role_id AS id, name AS
                                     value FROM role");
             return $res->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function existsUserById($id) {
+            $res = $this->db->query("SELECT user_id FROM user WHERE user_id = $id");
+            if ($res->fetchColumn() > 0) {
+                return true;
+            }
+            return false;
         }
     }
 ?>

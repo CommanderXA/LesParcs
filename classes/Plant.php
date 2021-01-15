@@ -6,15 +6,12 @@
         public $date_planted = null;
         public $zone_id = 0;
         public $species_id = 0;
-        public $active = 1;
 
         public function validate() {
-            if(!empty($this->name) &&
-                !empty($this->plant_age) &&
+            if(!empty($this->plant_age) &&
                 !empty($this->date_planted) &&
                 !empty($this->zone_id) &&
-                !empty($this->species_id) &&
-                !empty($this->active)) {
+                !empty($this->species_id)) {
                 return true;
             }
             return false;

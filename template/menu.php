@@ -15,6 +15,28 @@
       <li <?=($_SERVER['PHP_SELF']=='/list-decorator.php')?'class="active"':'';?>>
         <a href="list-decorator.php"><i class="fa fa-users"></i><span>Decorators</span></a>
       </li>
+
+      <li class="header">References</li>
+
+      <li <?=($_SERVER['PHP_SELF']=='/list-time.php')?'class="active"':'';?>>
+        <a href="list-time.php"><i class="fa fa-users"></i><span>Watering times</span></a>
+      </li>
+
+      <li <?=($_SERVER['PHP_SELF']=='/list-park.php')?'class="active"':'';?>>
+        <a href="list-park.php"><i class="fa fa-users"></i><span>Parks</span></a>
+      </li>
+      
+      <li <?=($_SERVER['PHP_SELF']=='/list-zone.php')?'class="active"':'';?>>
+        <a href="list-zone.php"><i class="fa fa-users"></i><span>Zones</span></a>
+      </li>
+
+      <li <?=($_SERVER['PHP_SELF']=='/list-species.php')?'class="active"':'';?>>
+        <a href="list-species.php"><i class="fa fa-users"></i><span>Species</span></a>
+      </li>
+
+      <li <?=($_SERVER['PHP_SELF']=='/list-plant.php')?'class="active"':'';?>>
+        <a href="list-plant.php"><i class="fa fa-users"></i><span>Plants</span></a>
+      </li>
       
     </ul>
   </section>

@@ -1,7 +1,7 @@
 <?php
-    class WateringPlan extends Table {
+    class Plan extends Table {
 
-        public $watering_plan_id = 0;
+        public $plan_id = 0;
         public $plant_id = 0;
         public $employee_id = 0;
         public $water_rate = 0;

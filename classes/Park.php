@@ -6,8 +6,7 @@
         public $active = 1;
 
         public function validate() {
-            if(!empty($this->name) &&
-                !empty($this->active)) {
+            if(!empty($this->name)) {
                 return true;
             }
             return false;

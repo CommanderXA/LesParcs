@@ -1,5 +1,5 @@
 <?php
-    class Plant extends Table {
+    class Species extends Table {
 
         public $species_id = 0;
         public $name = '';
