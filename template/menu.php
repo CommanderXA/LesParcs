@@ -6,6 +6,10 @@
         <a href="index.php"><i class="fa fa-calendar"></i><span>Main</span></a>
       </li>
 
+      <li <?=($_SERVER['PHP_SELF']=='/index.php')?'class="active"': '';?>>
+        <a href="list-day-workers.php"><i class="fa fa-calendar"></i><span>Workers Timetable</span></a>
+      </li>
+
       <li class="header">Users</li>
 
       <li <?=($_SERVER['PHP_SELF']=='/list-attendant.php')?'class="active"':'';?>>

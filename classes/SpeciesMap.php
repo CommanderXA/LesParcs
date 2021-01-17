@@ -58,6 +58,11 @@
             return $res->fetchAll(PDO::FETCH_OBJ);
         }
 
+        public function findInstances($id) {
+            $res = $this->db->query("SELECT COUNT(*) AS cnt FROM plant INNER JOIN species ON plant.species_id=species.species_id WHERE species.species_id=$id");
+            return $res->fetchAll(PDO::FETCH_OBJ);
+        }
+
         public function count() {
             $res = $this->db->query("SELECT COUNT(*) AS cnt FROM species");
             return $res->fetch(PDO::FETCH_OBJ)->cnt;
