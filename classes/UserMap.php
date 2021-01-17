@@ -100,7 +100,7 @@
         }
 
         public function identity($id) {
-            if ((new AttendantMap())->findById($id)->validate()) {
+            if ((new AttendantMap())->findById($id)->validate2()) {
                 return self::ATTENDANT;
             }
             if ((new DecoratorMap())->findById($id)->validate()) {

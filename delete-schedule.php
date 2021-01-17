@@ -5,7 +5,7 @@
         exit();
     }
     $id = Helper::clearInt($_GET['id']);
-    $idAttender = Helper::clearInt($_GET['idAttender']);
-    (new ScheduleMap())->delete($id);
-    header('Location: list-schedule.php?id='.$idAttender);
+    $idAttendant = Helper::clearInt($_GET['idAttendant']);
+    (new SchedulesMap())->delete($id);
+    header('Location: list-schedule.php?id='.$idAttendant);
 ?>

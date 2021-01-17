@@ -1,5 +1,5 @@
 <?php
-    class Schedule extends Table {
+    class Schedules extends Table {
 
         public $schedule_id = 0;
         public $plan_id = 0;

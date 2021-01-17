@@ -11,7 +11,7 @@
         header('Location: 404.php');
     }
     $header = 'Schedule of Attendant: '.$attendant->full_name;
-    $daysSchedules = (new ScheduleMap())->findByAttendantId($id);
+    $daysSchedules = (new SchedulesMap())->findByAttendantId($id);
     require_once 'template/header.php';
 ?>
 <div class="row">
@@ -32,7 +32,7 @@
                 <table class="table table-bordered table-hover">
                     <?php foreach ($daysSchedules as $day) : ?>
                         <tr>
-                            <th colspan="4">
+                            <th colspan="6">
                                 <h4 class="center-block">
                                     <?=$day['name'];?>
                                     <a href="add-schedule.php?idUser=<?=$id;?>&idDay=<?=$day['id'];?>"><i class="fa fa-plus"></i></a>
@@ -46,16 +46,17 @@
                                 ($plant['schedule'] as $schedule ) : ?>
                                 <tr>
                                     <td><b><?=$plant['name'];?></b></td>
-                                    <td><?=$schedule['watering_time'];?></td>
+                                    <td>id: <?=$plant['id'];?></td>
+                                    <td><?=$schedule['time'];?></td>
                                     <td><?=$plant['zone'];?></td>
                                     <td><?=$plant['park'];?></td>
-                                    <td><a href="delete-schedule.php?id=<?=$schedule['schedule_id'];?>&idattendant=<?=$id;?>"><i class="fa fa-trash"></i></a></td>
+                                    <td><a href="delete-schedule.php?id=<?=$schedule['schedules_id'];?>&idAttendant=<?=$id;?>"><i class="fa fa-trash"></i></a></td>
                                 </tr>
                             <?php endforeach;?>
                         <?php endforeach;?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="4">No schedule for this day</td>
+                                <td colspan="6">No schedule for this day</td>
                             </tr>
                         <?php endif; ?>
                     <?php endforeach;?>

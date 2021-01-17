@@ -2,7 +2,7 @@
     class TimeMap extends BaseMap {
         public function arrTimes() {
             $res = $this->db->query("SELECT watering_time_id AS id, watering_time
-                                    AS value FROM time");
+                                    AS value FROM time ORDER BY watering_time");
             return $res->fetchAll(PDO::FETCH_ASSOC);
         }
 

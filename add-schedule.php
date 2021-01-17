@@ -11,16 +11,16 @@
     } else {
         header('Location: 404.php');
     }
-    $schedule = new ScheduleMap();
+    $schedule = new SchedulesMap();
     $day = $schedule->findDayById($idDay);
-    $header = 'Add Schedule. Day: '.$day->name. '. Attendaer: '.$attendant->full_name;
+    $header = 'Add Schedule. Day: '.$day->name. '. Attendant: '.$attendant->full_name;
     require_once 'template/header.php';
 ?>
 <section class="content-header">
     <ol class="breadcrumb">
         <li><a href="/index.php"><i class="fa fa-dashboard"></i> Main</a></li>
         <li><a href="list-attendant-schedule.php">Schedule</a></li>
-        <li><a href="list-schedule.php?id=<?=$idUser;?>">Attender's schedule</a></li>
+        <li><a href="list-schedule.php?id=<?=$idUser;?>">Attendant's schedule</a></li>
         <li class="active"><?=$header;?></li>
     </ol>
 </section>
@@ -39,13 +39,13 @@
         <div class="form-group">
             <label>Plan and Plant</label>
             <select class="form-control" name="plan_id">
-                <?= Helper::printSelectOptions(0, (new PlanMap())->arrPlanByattendantId($idUser));?>
+                <?= Helper::printSelectOptions($schedule->plan_id, (new PlanMap())->arrPlanByAttendantId($idUser));?>
             </select>
         </div>
         <div class="form-group">
             <label>Time</label>
             <select class="form-control" name="watering_time_id">
-                <?= Helper::printSelectOptions($schedule->watering_time_id, (new Time())->arrTimes());?>
+                <?= Helper::printSelectOptions($schedule->watering_time_id, (new TimeMap())->arrTimes());?>
             </select>
         </div>
         <input type="hidden" name="day_id" value="<?=$idDay;?>" />

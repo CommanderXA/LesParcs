@@ -6,7 +6,7 @@
     }
     $id = Helper::clearInt($_GET['id']);
     $idPlan = Helper::clearInt($_GET['idplan']);
-    if ((new ScheduleMap())->existsScheduleByPlanId($id) || !(new PlanMap())->delete($id)) {
+    if ((new SchedulesMap())->existsScheduleByPlanId($id) || !(new PlanMap())->delete($id)) {
         Helper::setFlash('Could not delete the plan. It has schedules (Delete them first).');
     }
     header('Location: list-plan.php?id='.$idPlan);

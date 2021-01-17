@@ -47,10 +47,10 @@
 
         public function arrPlanByAttendantId($id = null) {
             if ($id) {
-                $res = $this->db->query("SELECT plan.plan_id AS id, CONCAT(gruppa.name,' -> ',subject.name) AS value"
-                . " FROM plan INNER JOIN gruppa ON plan.gruppa_id=gruppa.gruppa_id "
-                . "INNER JOIN subject ON plan.subject_id=subject.subject_id "
-                . "WHERE plan.user_id=$id ORDER BY gruppa.name, subject.name");
+                $res = $this->db->query("SELECT plan.plan_id AS id, CONCAT(species.name,' -> ',plant.plant_id) AS value"
+                . " FROM plan INNER JOIN plant ON plan.plant_id=plant.plant_id "
+                . "INNER JOIN species ON plant.species_id=species.species_id "
+                . "WHERE plan.user_id=$id ORDER BY species.name, plant.plant_id");
                 return $res->fetchAll(PDO::FETCH_ASSOC);
             }
             return [];

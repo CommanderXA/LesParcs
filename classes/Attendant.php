@@ -6,5 +6,12 @@
         public function validate() {
             return true;
         }
+
+        public function validate2() {
+            if (!empty($this->user_id)) {
+                return true;
+            }
+            return false;
+        }
     }
 ?>

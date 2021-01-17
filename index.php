@@ -3,7 +3,9 @@
     $header = 'Your Schedule';
     $userIdentity = (new UserMap())->identity($_SESSION['id']);
     if ($userIdentity == UserMap::ATTENDANT) {
-        //$schedules = (new WateringScheduleMap())->findByAttendantId($_SESSION['id']);
+        $schedules = (new SchedulesMap())->findByAttendantId($_SESSION['id']);
+    } else {
+        $schedules = null;
     }
     require_once 'template/header.php';
 ?>
@@ -17,15 +19,36 @@
                 <?php if ($schedules) : ?>
                     <table class="table table-bordered table-hover">
                         <?php foreach ($schedules as $day) : ?>
-                            <!-- <?php #else: ?>
+                            <tr>
+                                <th colspan="5">
+                                    <h4 class="center-block">
+                                        <?=$day['name'];?>
+                                    </h4>
+                                </th>
+                            </tr>
+
+                        <?php if ($day['plant']) : ?>
+                            <?php foreach ($day['plant'] as $plant) : ?>
+                                <?php foreach
+                                    ($plant['schedule'] as $schedule ) : ?>
+                                    <tr>
+                                        <td><b><?=$plant['name'];?></b></td>
+                                        <td>id: <?=$plant['id'];?></td>
+                                        <td><?=$schedule['time'];?></td>
+                                        <td><?=$plant['zone'];?></td>
+                                        <td><?=$plant['park'];?></td>
+                                    </tr>
+                                <?php endforeach;?>
+                            <?php endforeach;?>
+                            <?php else: ?>
                                 <tr>
-                                    <td colspan="3">You have no Schedule for this day</td>
-                                </tr> -->
-                            <?php #endif; ?>
+                                    <td colspan="5">No schedule for this day</td>
+                                </tr>
+                            <?php endif; ?>
                         <?php endforeach;?>
                     </table>
                 <?php else: ?>
-                <p>You have no Schedule</p>
+                    <p>No schedule</p>
                 <?php endif; ?>
             </div>
         </div>

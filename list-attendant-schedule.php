@@ -42,7 +42,7 @@
                         <td><?=$attendant->full_name;?></td>
                         <td><?=$attendant->count_plan;?></td>
                         <td>
-                            <a href="list-plan.php?id=<?=$attendant->user_id;?>" title="Attendant's plan"><i class="fa fa-table"></i></a>&nbsp;
+                            <a href="list-plan.php?id=<?=$attendant->user_id;?>" title="Attendant's plan"><i class="fa fa-table"></i></a>&nbsp;<br>
                             <a href="list-schedule.php?id=<?=$attendant->user_id;?>" title="Attendant's schedule"><i class="fa fa-calendar-plus-o"></i></a>
                         </td>
                     </tr>

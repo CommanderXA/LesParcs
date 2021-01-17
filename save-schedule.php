@@ -5,13 +5,13 @@
         exit();
     }
     if (isset($_POST['plan_id'])) {
-        $schedule = new Schedule();
+        $schedule = new Schedules();
         $schedule->plan_id = Helper::clearInt($_POST['plan_id']);
         $schedule->day_id = Helper::clearInt($_POST['day_id']);
         $schedule->watering_time_id = Helper::clearInt($_POST['watering_time_id']);
         $userId = Helper::clearInt($_POST['user_id']);
-        $scheduleMap = new ScheduleMap();
-        if ($schedule->validate() && !$scheduleMap->existsScheduleAttendantAndPlant($schedule)) {
+        $scheduleMap = new SchedulesMap();
+        if ($schedule->validate() && !$scheduleMap->existsSchedulesAttendantAndPlant($schedule)) {
             if ($scheduleMap->save($schedule)) {
                 header('Location: list-schedule.php?id='.$userId);
             } else {
