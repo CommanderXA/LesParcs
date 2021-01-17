@@ -91,7 +91,7 @@
 
         public function findProfileById($id = null) {
             if ($id) {
-                $res = $this->db->query("SELECT user.user_id, user.firstname,user.patronymic, user.lastname,"
+                $res = $this->db->query("SELECT user.user_id, user.firstname,user.patronymic, user.lastname, CONCAT(user.firstname, ' ', user.lastname) AS full_name,"
                                         . " user.username, user.address, phone, role.name AS role, user.active FROM user "
                                         . "INNER JOIN role ON user.role_id=role.role_id WHERE user.user_id = $id");
                 return $res->fetch(PDO::FETCH_OBJ);

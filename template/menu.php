@@ -37,6 +37,10 @@
       <li <?=($_SERVER['PHP_SELF']=='/list-plant.php')?'class="active"':'';?>>
         <a href="list-plant.php"><i class="fa fa-users"></i><span>Plants</span></a>
       </li>
+
+      <li <?=($_SERVER['PHP_SELF']=='/list-plant.php')?'class="active"':'';?>>
+        <a href="list-attendant-schedule.php"><i class="fa fa-users"></i><span>Schedules Managament</span></a>
+      </li>
       
     </ul>
   </section>

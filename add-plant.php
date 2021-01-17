@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
             <label>Plant Age</label>
-            <input type="text" class="form-control" name="plant_age" required="required" value="<?=$plant->plant_age;?>">
+            <input type="number" class="form-control" name="plant_age" required="required" value="<?=$plant->plant_age;?>">
         </div>
         <div class="form-group">
             <label>Date Planted</label>

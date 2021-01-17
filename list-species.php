@@ -37,6 +37,8 @@
                     <thead>
                         <tr>
                             <th>Species Name</th>
+                            <th>Watering Mode</th>
+                            <th>Water Rate</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +46,8 @@
                             foreach ($speciess as $species) {
                                 echo '<tr>';
                                 echo '<td><a href="view-species.php?id='.$species->species_id.'">'.$species->name.'</a> ' . '<a href="add-species.php?id='.$species->species_id.'"><i class="fa fa-pencil"></i></a></td>';
+                                echo '<td>'.$species->mode.'</td>';
+                                echo '<td>'.$species->water_rate.' liters</td>';
                                 echo '<td><a href="delete-species.php?id='.$species->species_id.'"><i class="fa fa-trash"></i> Delete</a></td>';
                                 echo '</tr>';
                             }

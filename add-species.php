@@ -8,7 +8,7 @@
     if (isset($_GET['id'])) {
         $id = Helper::clearInt($_GET['id']);
     }
-    $species = (new speciesMap())->findById($id);
+    $species = (new SpeciesMap())->findById($id);
     $header = (($id)?'Edit':'Add').' species';
     require_once 'template/header.php';
 ?>
@@ -25,6 +25,16 @@
         <div class="form-group">
             <label>Species Name</label>
             <input type="text" class="form-control" name="name" required="required" value="<?=$species->name;?>">
+        </div>
+        <div class="form-group">
+            <label>Watering Mode <i>(What is the charge per week)</i></label>
+            <select class="form-control" name="mode_id">
+                <?= Helper::printSelectOptions($species->mode_id, (new SpeciesMap())->arrModes());?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Water Rate <i>(In liters)</i></label>
+            <input type="number" placeholder="Litres" name="water_rate" class="form-control" required="required" value="<?=$species->water_rate;?>">
         </div>
         <div class="form-group">
             <button type="submit" name="saveSpecies" class="btn btn-primary">Save</button>

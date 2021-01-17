@@ -1,7 +1,10 @@
 <?php
     class PlantMap extends BaseMap {
         public function arrPlants() {
-            $res = $this->db->query("SELECT plant_id AS id, species AS value FROM plant INNER JOIN species ON plant.species_id=species.species_id");
+            $res = $this->db->query("SELECT plant_id AS id, species.name AS value FROM plant 
+                                    INNER JOIN species ON plant.species_id=species.species_id
+                                    WHERE plant_id NOT IN (SELECT plant_id FROM plan)");
+            var_dump($res);
             return $res->fetchAll(PDO::FETCH_ASSOC);
         }
 
@@ -26,7 +29,7 @@
 
         private function insert(Plant $plant) {
             $date_planted = $this->db->quote($plant->date_planted);
-            if ($this->db->exec("INSERT INTO plant(species_id, zone_id, plant_age, date_planted)" . " VALUES($plant->species_id, $plant->zone_id, $plant->plant_age, $date_planted)") == 1) {
+            if ($this->db->exec("INSERT INTO plant(species_id, zone_id, plant_age, date_planted) VALUES($plant->species_id, $plant->zone_id, $plant->plant_age, $date_planted)") == 1) {
                 $plant->plant_id = $this->db->lastInsertId();
                 return true;
             }

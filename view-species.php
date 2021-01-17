@@ -30,6 +30,14 @@
                                 <th>Species Name</th>
                                 <td><?=$species->name;?></td>
                             </tr>
+                            <tr>
+                                <th>Watering mode</th>
+                                <td><?=$species->mode;?></td>
+                            </tr>
+                            <tr>
+                                <th>Water rate</th>
+                                <td><?=$species->water_rate;?> liters</td>
+                            </tr>
                         </table>
                     </div>
                 </div>

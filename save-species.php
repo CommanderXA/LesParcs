@@ -8,6 +8,8 @@
         $species = new Species();
         $species->species_id = Helper::clearInt($_POST['species_id']);
         $species->name = Helper::clearString($_POST['name']);
+        $species->mode_id = Helper::clearInt($_POST['mode_id']);
+        $species->water_rate = Helper::clearInt($_POST['water_rate']);
         if ((new SpeciesMap())->save($species)) {
             header('Location: view-species.php?id='.$species->species_id);
         } else {
